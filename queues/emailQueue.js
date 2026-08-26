@@ -11,7 +11,7 @@ const RETRY_DELAYS = [
     24 * 60 * 60 * 1000  // 24 hours
 ];
 
-const resend = new Resend("re_LxXEA3aq_Hm4RHQpn26b7Js6xBBqbkKJb");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 class EmailQueueService {
     constructor() {
@@ -138,4 +138,6 @@ const emailQueueService = new EmailQueueService();
 // Export function to add emails to queue
 export const addEmailToQueue = async (emailData) => {
     return await emailQueueService.addToQueue(emailData);
-}; 
+};
+
+export { emailQueueService }; 

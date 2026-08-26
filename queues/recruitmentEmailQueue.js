@@ -5,7 +5,7 @@ import RecruitmentEmailQueue from '../models/recruitmentEmailQueue.model.js';
 const PROCESSING_INTERVAL = 5 * 60 * 1000; // every 5 minutes
 const RETRY_DELAYS = [15 * 60 * 1000, 60 * 60 * 1000, 4 * 60 * 60 * 1000]; // 15m, 1h, 4h
 
-const resend = new Resend('re_LxXEA3aq_Hm4RHQpn26b7Js6xBBqbkKJb');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 class RecruitmentEmailQueueService {
     constructor() {
